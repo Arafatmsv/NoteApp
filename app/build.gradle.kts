@@ -39,6 +39,8 @@ android {
     }
 }
 
+val lottieVersion = "6.4.0"
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -50,7 +52,15 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //navigation
     val nav_version = "2.9.0"
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")
+
+    //lottie
+    implementation("com.airbnb.android:lottie:$lottieVersion")
+
+    //dots indicator
+    implementation(libs.dotsindicator)
+
 }

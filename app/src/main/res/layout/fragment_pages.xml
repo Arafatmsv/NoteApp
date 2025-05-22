@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:background="#252525"
+    android:paddingHorizontal="36dp"
+    tools:context=".ui.fragments.onboard.PagesFragment"
+    android:orientation="vertical"
+    android:paddingBottom="160dp">
+
+   <com.airbnb.lottie.LottieAnimationView
+       android:background="@drawable/bg_lotti"
+       android:id="@+id/animationLotti"
+       android:layout_width="287dp"
+       android:layout_height="264dp"
+       app:lottie_autoPlay="true"
+       app:lottie_loop="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        tools:text="Удобство"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_bold"
+
+        />
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/paragraph"
+        tools:text="Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно."
+        android:textSize="17sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="@font/inter_medium"
+        />
+
+</LinearLayout>
