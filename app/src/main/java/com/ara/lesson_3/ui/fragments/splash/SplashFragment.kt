@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.ara.lesson_3.App
 import com.ara.lesson_3.R
@@ -17,10 +18,13 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (PreferenceHelper.isOnboardShow()) {
-                findNavController().navigate(R.id.action_splash_to_homeFragment)
+                findNavController().navigate(
+                    R.id.action_splash_to_homeFragment, null,
+                    NavOptions.Builder().setPopUpTo(R.id.splashFragment, true).build()
+                )
             } else {
-                findNavController().navigate(R.id.action_splash_to_onBoardFragment)
-
+                findNavController().navigate(R.id.action_splash_to_onBoardFragment,
+                    null, NavOptions.Builder().setPopUpTo(R.id.splashFragment, true).build())
             } }, 1500)
     }
 }

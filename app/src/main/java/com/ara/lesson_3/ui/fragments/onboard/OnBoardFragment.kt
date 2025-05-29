@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.ara.lesson_3.App
@@ -59,7 +60,8 @@ class OnBoardFragment : Fragment() {
 
         binding.btnStart.setOnClickListener {
             PreferenceHelper.setOnboardShow(true)
-            findNavController().navigate(R.id.homeFragment)
+            findNavController().navigate(R.id.homeFragment, null, NavOptions.
+            Builder().setPopUpTo(R.id.onBoardFragment, true).build())
         }
     }
 }
