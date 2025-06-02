@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_item_note"
-    android:layout_marginVertical="5dp"
+    android:background="@color/color_yellow"
+    android:layout_margin="5dp"
     android:padding="10dp"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -15,9 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:textSize="18sp"
+        android:textSize="23sp"
         android:textColor="@color/black"
-        tools:text="План на жизнь"/>
+        tools:text="План на жизнь"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 
     <TextView
         android:id="@+id/txt_item_description"
@@ -25,9 +27,11 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_light"
-        android:textSize="16sp"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="20sp"
         android:textColor="@color/black"
+        android:maxLines="1"
+        android:ellipsize="end"
         tools:text="План на жизнь"/>
 
     <TextView
@@ -36,7 +40,7 @@
         android:fontFamily="@font/poppins_light"
         android:textColor="@color/black"
         tools:text="30 мая"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:id="@+id/txt_item_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -48,7 +52,7 @@
         android:fontFamily="@font/poppins_light"
         android:textColor="@color/black"
         tools:text="17:41"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:id="@+id/txt_item_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

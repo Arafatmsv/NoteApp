@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Все заметки"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="25sp"
             android:fontFamily="@font/poppins"/>
 
         <ImageView
@@ -44,10 +44,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_shape"/>
+            android:src="@drawable/ic_grid"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <SearchView
+        android:id="@+id/search"
         android:layout_marginTop="22dp"
         android:paddingVertical="11dp"
         android:layout_width="match_parent"

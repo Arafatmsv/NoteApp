@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 object PreferenceHelper {
     private lateinit var sharedPreferences: SharedPreferences
     private val ONBOARDING_SHOWN = "onboard_show"
+    private val IS_LINEAR = "is_linear"
 
     fun unit(context: Context) {
         sharedPreferences = context.getSharedPreferences("shared", Context.MODE_PRIVATE)
@@ -18,5 +19,14 @@ object PreferenceHelper {
 
     fun setOnboardShow(value: Boolean) {
         sharedPreferences.edit().putBoolean(ONBOARDING_SHOWN, value).apply()
+    }
+
+
+    fun isLinear(): Boolean {
+        return sharedPreferences.getBoolean(IS_LINEAR, true)
+    }
+
+    fun setLinear(value: Boolean) {
+        sharedPreferences.edit().putBoolean(IS_LINEAR, value).apply()
     }
 }

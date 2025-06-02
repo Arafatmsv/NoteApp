@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ara.lesson_3.data.models.NoteModel
-import com.ara.lesson_3.databinding.FragmentDetailBinding
 import com.ara.lesson_3.databinding.ItemNoteBinding
 import com.ara.lesson_3.utils.DiffCallback
+import com.ara.lesson_3.utils.OnClickItem
 
-class HomeAdapter : ListAdapter<NoteModel, HomeAdapter.ViewHolder>(DiffCallback()) {
+class HomeAdapter(
+    private val onLongClick: OnClickItem,
+    private val onClickItem: OnClickItem
+) : ListAdapter<NoteModel, HomeAdapter.ViewHolder>(DiffCallback()) {
 
     class ViewHolder(private val binding: ItemNoteBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: NoteModel) {
@@ -18,6 +21,8 @@ class HomeAdapter : ListAdapter<NoteModel, HomeAdapter.ViewHolder>(DiffCallback(
             binding.txtItemDescription.text = item.description
             binding.txtItemDate.text = item.date
             binding.txtItemTime.text = item.time
+
+            binding.root.setBackgroundColor(item.color)
         }
 
     }
@@ -28,6 +33,16 @@ class HomeAdapter : ListAdapter<NoteModel, HomeAdapter.ViewHolder>(DiffCallback(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
+
+        holder.itemView.setOnLongClickListener {
+            onLongClick.onLongClick(getItem(position))
+            true
+        }
+
+        holder.itemView.setOnClickListener {
+            onClickItem.onClick(getItem(position))
+        }
+
     }
 
 }
