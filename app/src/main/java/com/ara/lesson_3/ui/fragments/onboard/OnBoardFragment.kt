@@ -60,7 +60,7 @@ class OnBoardFragment : Fragment() {
 
         binding.btnStart.setOnClickListener {
             PreferenceHelper.setOnboardShow(true)
-            findNavController().navigate(R.id.homeFragment, null, NavOptions.
+            findNavController().navigate(R.id.authFragment, null, NavOptions.
             Builder().setPopUpTo(R.id.onBoardFragment, true).build())
         }
     }

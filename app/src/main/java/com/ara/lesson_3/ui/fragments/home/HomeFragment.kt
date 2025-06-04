@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.PopupWindow
+import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnClickItem {
     private lateinit var binding: FragmentHomeBinding
     private val homeAdapter = HomeAdapter(this, this)
     private var isLinear: Boolean = true
+    private var allNotes: List<NoteModel> = emptyList()
 
 
     override fun onCreateView( inflater: LayoutInflater,
@@ -56,9 +58,29 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnClickItem {
             if (isLinear) R.drawable.ic_grid else R.drawable.ic_shape
         )
 
+
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                filter(newText)
+                return true
+            }
+        })
+
         initialize()
         setupListeners()
         getData()
+    }
+
+    private fun filter(newText: String) {
+        val filteredList = allNotes.filter {
+            it.title.contains(newText, ignoreCase = true) ||
+                    it.description.contains(newText, ignoreCase = true)
+        }
+        homeAdapter.submitList(filteredList)
     }
 
     private fun initialize() {
@@ -100,6 +122,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), OnClickItem {
 
     private fun getData() {
         App.appDatabase?.noteDao()?.getAll()?.observe(viewLifecycleOwner) { listModel ->
+            allNotes = listModel
             homeAdapter.submitList(listModel)
         }
     }

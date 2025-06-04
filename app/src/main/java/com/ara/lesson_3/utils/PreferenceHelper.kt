@@ -29,4 +29,13 @@ object PreferenceHelper {
     fun setLinear(value: Boolean) {
         sharedPreferences.edit().putBoolean(IS_LINEAR, value).apply()
     }
+
+
+    fun setAuthorized(value: Boolean) {
+        sharedPreferences.edit().putBoolean("isAuthorized", value).apply()
+    }
+
+    fun isAuthorized(): Boolean {
+        return sharedPreferences.getBoolean("isAuthorized", false)
+    }
 }

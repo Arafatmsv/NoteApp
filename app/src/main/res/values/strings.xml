@@ -2,4 +2,5 @@
     <string name="app_name">Lesson_3</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">791419424433-5shna6bp9be56nur1rh1nen6s49ian1b.apps.googleusercontent.com</string>
 </resources>

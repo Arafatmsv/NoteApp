@@ -35,6 +35,10 @@
         <action
             android:id="@+id/action_splash_to_homeFragment"
             app:destination="@id/homeFragment" />
+
+        <action
+            android:id="@+id/action_splash_to_authFragment"
+            app:destination="@id/authFragment" />
     </fragment>
 
     <fragment
@@ -62,4 +66,9 @@
             app:argType="integer"
             android:defaultValue="-1"/>
     </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.ara.lesson_3.ui.fragments.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
 </navigation>
